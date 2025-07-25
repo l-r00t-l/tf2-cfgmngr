@@ -19,7 +19,8 @@ fn discover_cfgs(settings: Settings) -> io::Result<CfgMap> {
             let cfg_name = cfg_path.iter().last().unwrap().display();
             let cfg_raw = fs::read_to_string(cfg_path.join("data.json"));
             if !cfg_raw.is_ok() {
-                Err(io::Error::new(io::ErrorKind::NotFound, format!("Config data (data.json) does not exist in {cfg_name} directory.")))?;
+                eprintln!("[WARNING] Config data (data.json) does not exist in {cfg_name} directory.");
+                continue;
             }
             let data: CfgData = serde_json::from_str(cfg_raw.unwrap().as_str())?;
             cfgs.insert(cfg_name.to_string(), data);

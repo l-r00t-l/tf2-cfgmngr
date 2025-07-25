@@ -29,10 +29,5 @@ tf2-cfgmgr init
 tf2-cfgmgr switch <cfg_name>
 ```
 
-```
-tf2-cfgmgr --list
-tf2-cfgmgr <cfg_name>
-```
-
 ## TUI
 **POSSIBLE TODO** Will be used in list mode

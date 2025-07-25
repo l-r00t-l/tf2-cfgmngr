@@ -58,7 +58,7 @@ fn handle_init(path: Option<String>) -> io::Result<()> {
         Some(path) => { PathBuf::from(path) }
     };
 
-    let name= path_actual.file_name().and_then(|os_str| os_str.to_str()).expect("Failed to cwd name.");
+    let name = path_actual.file_name().and_then(|os_str| os_str.to_str()).expect("Failed to cwd name.");
     // Check if there are cfg/ and custom/ dirs
     if !path_actual.join("/cfg/").exists() {
         println!("[WARNING] Dir '{}' doesn't contain the cfg/ folder", name);
@@ -74,9 +74,7 @@ fn handle_init(path: Option<String>) -> io::Result<()> {
     let new_cfg = CfgData { description, author, alias };
 
     let json_cfg = serde_json::to_string(&new_cfg)?;
-    std::fs::write(path_actual.join("/data.json"), json_cfg)?;
-
-    Ok(())
+    std::fs::write(path_actual.join("data.json"), json_cfg)
 }
 
 pub fn run(cfgs: CfgMap) {

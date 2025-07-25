@@ -195,7 +195,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tf2-config-manager"
+name = "tf2-cfgmngr"
 version = "0.1.0"
 dependencies = [
  "clap",

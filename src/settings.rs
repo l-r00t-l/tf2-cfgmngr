@@ -20,6 +20,7 @@ pub fn load() -> Result<Settings, Box<dyn std::error::Error>> {
             file.read_to_string(&mut temp)?;
             settings = serde_json::from_str(&temp).unwrap();
         }
+        // TODO: Interactive tf path chooser
         Err(error) => {
             if let std::io::ErrorKind::NotFound = error.kind() {
                 dbg!("[INFO] No settings, initalizing default config.");
